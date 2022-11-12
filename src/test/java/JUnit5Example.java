@@ -1,15 +1,29 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class JUnit5Example {
 
+    @BeforeAll
+    static void beforeAll(){
+        System.out.println("!!!   beforeAll   !!!");
+    }
+
+    @AfterAll
+    static void afterAll(){
+        System.out.println("!!!   afterAll   !!!");
+    }
+
     @BeforeEach
     void beforeEach(){
         // open("google.com");
         System.out.println("!!!beforeEach!!!");
+    }
+
+    @AfterEach
+    void afterEach(){
+        System.out.println("!!!afterEach!!!");
     }
 
     @Test
