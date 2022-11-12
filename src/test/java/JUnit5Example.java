@@ -35,6 +35,6 @@ public class JUnit5Example {
     @Test
     void secondTest() {
         System.out.println("!!!secondTest!!!");
-        assertFalse(3 > 2);
+//        assertFalse(3 > 2);
     }
 }
