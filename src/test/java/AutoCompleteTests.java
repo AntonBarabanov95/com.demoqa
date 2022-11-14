@@ -2,7 +2,8 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 
 public class AutoCompleteTests {
@@ -17,5 +18,12 @@ public class AutoCompleteTests {
     @Test
     void fillAutoCompleteForm() {
         open("/auto-complete");
+
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
+
+        $("#autoCompleteMultipleInput").click();
+        $("#autoCompleteMultipleInput").setValue("Red").pressEnter();
+
     }
 }
