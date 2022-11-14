@@ -1,7 +1,9 @@
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
@@ -24,6 +26,17 @@ public class AutoCompleteTests {
 
         $("#autoCompleteMultipleInput").click();
         $("#autoCompleteMultipleInput").setValue("Red").pressEnter();
+        $("#autoCompleteMultipleInput").setValue("Green").pressEnter();
+
+        $(".auto-complete__multi-value__label").shouldHave(text("Red"));
 
     }
+
+    @Test
+    void deleteInput() {
+        $(".auto-complete__multi-value__remove").click();
+        $(".auto-complete__clear-indicator").click();
+    }
+
+
 }
