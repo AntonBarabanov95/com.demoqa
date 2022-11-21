@@ -1,7 +1,10 @@
+package tests;
+
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import pages.RegistrationPage;
 
 
 import java.io.File;
@@ -22,10 +25,8 @@ public class PracticeFormTests {
 
     @Test
     void fillPracticeFormTest() {
-        open("/automation-practice-form");
 
-        executeJavaScript("$('footer').remove()");
-        executeJavaScript("$('#fixedban').remove()");
+        new RegistrationPage().openPage();
 
         $("#firstName").setValue("Anton");
         $("#lastName").setValue("Barabanov");
